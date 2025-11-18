@@ -1,0 +1,38 @@
+@startuml
+class task1.SimpleElement {
+- String property
++ String getProperty()
++ void setProperty(String)
++ GameElement clone(boolean)
++ String toString()
+}
+
+
+class task1.CompositeElement {
+- List<GameElement> subElements
++ void addElement(GameElement)
++ List<GameElement> getSubElements()
++ GameElement clone(boolean)
++ void displayStructure(int)
+}
+
+
+abstract class task1.GameElement {
+- String name
++ String getName()
++ void setName(String)
++ {abstract}GameElement clone(boolean)
++ String toString()
+}
+
+
+class task1.Main {
++ {static} void main(String[])
+}
+
+
+
+task1.GameElement <|-- task1.SimpleElement
+task1.GameElement <|-- task1.CompositeElement
+task1.Cloneable <|.. task1.GameElement
+@enduml

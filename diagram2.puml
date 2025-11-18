@@ -1,0 +1,42 @@
+@startuml
+interface task2.IntegerList {
+~ void add(int)
+~ void remove(int)
+~ int get(int)
+~ int size()
+~ Iterator createIterator()
+}
+
+class task2.Main {
++ {static} void main(String[])
+}
+
+interface task2.Iterator {
+~ boolean hasNext()
+~ Integer next()
+}
+
+class task2.OrderedIterator {
+- List<Integer> sourceList
+- int currentPosition
++ boolean hasNext()
++ Integer next()
+}
+
+
+class task2.OrderedIntegerList {
+- List<Integer> list
++ void add(int)
++ void remove(int)
++ int get(int)
++ int size()
++ Iterator createIterator()
++ List<Integer> getInnerList()
+}
+
+
+
+
+task2.Iterator <|.. task2.OrderedIterator
+task2.IntegerList <|.. task2.OrderedIntegerList
+@enduml
